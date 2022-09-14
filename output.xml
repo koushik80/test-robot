@@ -1,37 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 16:21:47.773" rpa="false" schemaversion="2">
-<suite id="s1" name="Taitotalo" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot">
-<test id="s1-t1" name="Testaa taitotalon haku ja ilmottautuminen">
-<kw name="Avaa taitotalon sivu">
-<kw name="Open Available Browser">
-<arg>https://www.taitotalo.fi/</arg>
-<msg timestamp="20220914 16:21:47.812" level="FAIL">No keyword with name 'Open Available Browser' found.</msg>
-<status status="FAIL" starttime="20220914 16:21:47.811" endtime="20220914 16:21:47.812"/>
-</kw>
-<status status="FAIL" starttime="20220914 16:21:47.809" endtime="20220914 16:21:47.813"/>
-</kw>
-<kw name="Hyväksy evästeet">
-<status status="NOT RUN" starttime="20220914 16:21:47.813" endtime="20220914 16:21:47.813"/>
-</kw>
-<kw name="Hae haku lomakkeella">
-<arg>Python</arg>
-<status status="NOT RUN" starttime="20220914 16:21:47.813" endtime="20220914 16:21:47.813"/>
-</kw>
-<kw name="Hae ensimmäistä koulutusta">
-<status status="NOT RUN" starttime="20220914 16:21:47.814" endtime="20220914 16:21:47.814"/>
-</kw>
-<kw name="Täytä lomakkeen tiedot">
-<status status="NOT RUN" starttime="20220914 16:21:47.814" endtime="20220914 16:21:47.814"/>
-</kw>
-<kw name="Ota kuvankaappaus">
-<status status="NOT RUN" starttime="20220914 16:21:47.814" endtime="20220914 16:21:47.814"/>
-</kw>
-<kw name="Sulje selain">
-<status status="NOT RUN" starttime="20220914 16:21:47.814" endtime="20220914 16:21:47.814"/>
-</kw>
-<status status="FAIL" starttime="20220914 16:21:47.809" endtime="20220914 16:21:47.814">No keyword with name 'Open Available Browser' found.</status>
+<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 19:49:48.896" rpa="false" schemaversion="2">
+<suite id="s1" name="GoogleSearch" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot">
+<test id="s1-t1" name="This is sample test case">
+<status status="FAIL" starttime="20220914 19:49:48.927" endtime="20220914 19:49:48.928">Test case contains no keywords.</status>
 </test>
-<status status="FAIL" starttime="20220914 16:21:47.775" endtime="20220914 16:21:47.815"/>
+<status status="FAIL" starttime="20220914 19:49:48.898" endtime="20220914 19:49:48.929"/>
 </suite>
 <statistics>
 <total>
@@ -40,21 +13,22 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Taitotalo">Taitotalo</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="GoogleSearch">GoogleSearch</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20220914 16:21:47.808" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot' on line 2: Importing library 'RPA.Browser.Selenium' failed: ModuleNotFoundError: No module named 'RPA.Browser'
+<msg timestamp="20220914 19:49:48.927" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
 Traceback (most recent call last):
   None
 PYTHONPATH:
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.0/src/robotframework_debug_adapter
+  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_debug_adapter
   /Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.0/src
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.0/src/robotframework_ls/vendored
+  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src
+  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_ls/vendored
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python38.zip
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/lib-dynload
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/site-packages</msg>
+<msg timestamp="20220914 19:49:48.927" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot' on line 3: Resource setting requires value.</msg>
 </errors>
 </robot>
