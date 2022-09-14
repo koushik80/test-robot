@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 19:49:48.896" rpa="false" schemaversion="2">
-<suite id="s1" name="GoogleSearch" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot">
-<test id="s1-t1" name="This is sample test case">
-<status status="FAIL" starttime="20220914 19:49:48.927" endtime="20220914 19:49:48.928">Test case contains no keywords.</status>
+<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 20:55:09.232" rpa="false" schemaversion="2">
+<suite id="s1" name="Taitotalo" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot">
+<test id="s1-t1" name="Testaa taitotalon haku ja ilmottautuminen">
+<kw name="Avaa taitotalon sivu">
+<kw name="Open Available Browser">
+<arg>https://www.taitotalo.fi/</arg>
+<msg timestamp="20220914 20:55:09.267" level="FAIL">No keyword with name 'Open Available Browser' found.</msg>
+<status status="FAIL" starttime="20220914 20:55:09.267" endtime="20220914 20:55:09.267"/>
+</kw>
+<status status="FAIL" starttime="20220914 20:55:09.265" endtime="20220914 20:55:09.268"/>
+</kw>
+<kw name="Hyväksy evästeet">
+<status status="NOT RUN" starttime="20220914 20:55:09.268" endtime="20220914 20:55:09.268"/>
+</kw>
+<kw name="Hae haku lomakkeella">
+<arg>Python</arg>
+<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
+</kw>
+<kw name="Hae ensimmäistä koulutusta">
+<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
+</kw>
+<kw name="Täytä lomakkeen tiedot">
+<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
+</kw>
+<kw name="Ota kuvankaappaus">
+<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
+</kw>
+<kw name="Sulje selain">
+<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
+</kw>
+<status status="FAIL" starttime="20220914 20:55:09.264" endtime="20220914 20:55:09.270">No keyword with name 'Open Available Browser' found.</status>
 </test>
-<status status="FAIL" starttime="20220914 19:49:48.898" endtime="20220914 19:49:48.929"/>
+<status status="FAIL" starttime="20220914 20:55:09.234" endtime="20220914 20:55:09.270"/>
 </suite>
 <statistics>
 <total>
@@ -13,11 +40,11 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="GoogleSearch">GoogleSearch</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Taitotalo">Taitotalo</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20220914 19:49:48.927" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot' on line 2: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
+<msg timestamp="20220914 20:55:09.263" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot' on line 2: Importing library 'RPA.Browser.Selenium' failed: ModuleNotFoundError: No module named 'RPA.Browser'
 Traceback (most recent call last):
   None
 PYTHONPATH:
@@ -29,6 +56,5 @@ PYTHONPATH:
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/lib-dynload
   /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/site-packages</msg>
-<msg timestamp="20220914 19:49:48.927" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot' on line 3: Resource setting requires value.</msg>
 </errors>
 </robot>

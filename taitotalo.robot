@@ -1,5 +1,5 @@
 *** Settings ***
-Library    RPA.Browser.Selenium
+Library  RPA.Browser.Selenium
 
 *** Variables ***
 ${Etunimi}=     Pekka
