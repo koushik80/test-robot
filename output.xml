@@ -1,60 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 20:55:09.232" rpa="false" schemaversion="2">
-<suite id="s1" name="Taitotalo" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot">
-<test id="s1-t1" name="Testaa taitotalon haku ja ilmottautuminen">
-<kw name="Avaa taitotalon sivu">
-<kw name="Open Available Browser">
-<arg>https://www.taitotalo.fi/</arg>
-<msg timestamp="20220914 20:55:09.267" level="FAIL">No keyword with name 'Open Available Browser' found.</msg>
-<status status="FAIL" starttime="20220914 20:55:09.267" endtime="20220914 20:55:09.267"/>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20220914 22:23:39.422" rpa="false" schemaversion="3">
+<suite id="s1" name="GoogleSearch" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot">
+<test id="s1-t1" name="This is sample test case" line="8">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>http://www.google.com</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220914 22:23:39.820" level="INFO">Opening browser 'chrome' to base url 'http://www.google.com'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220914 22:23:39.828" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20220914 22:23:39.827" endtime="20220914 22:23:39.828"/>
 </kw>
-<status status="FAIL" starttime="20220914 20:55:09.265" endtime="20220914 20:55:09.268"/>
+<msg timestamp="20220914 22:23:39.830" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</msg>
+<status status="FAIL" starttime="20220914 22:23:39.820" endtime="20220914 22:23:39.832"/>
 </kw>
-<kw name="Hyväksy evästeet">
-<status status="NOT RUN" starttime="20220914 20:55:09.268" endtime="20220914 20:55:09.268"/>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20220914 22:23:39.832" endtime="20220914 22:23:39.832"/>
 </kw>
-<kw name="Hae haku lomakkeella">
-<arg>Python</arg>
-<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
-</kw>
-<kw name="Hae ensimmäistä koulutusta">
-<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
-</kw>
-<kw name="Täytä lomakkeen tiedot">
-<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
-</kw>
-<kw name="Ota kuvankaappaus">
-<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
-</kw>
-<kw name="Sulje selain">
-<status status="NOT RUN" starttime="20220914 20:55:09.269" endtime="20220914 20:55:09.269"/>
-</kw>
-<status status="FAIL" starttime="20220914 20:55:09.264" endtime="20220914 20:55:09.270">No keyword with name 'Open Available Browser' found.</status>
+<doc>Google test</doc>
+<tag>regression</tag>
+<status status="FAIL" starttime="20220914 22:23:39.819" endtime="20220914 22:23:39.833">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+</status>
 </test>
-<status status="FAIL" starttime="20220914 20:55:09.234" endtime="20220914 20:55:09.270"/>
+<status status="FAIL" starttime="20220914 22:23:39.425" endtime="20220914 22:23:39.834"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="0" fail="1" skip="0">regression</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Taitotalo">Taitotalo</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="GoogleSearch">GoogleSearch</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20220914 20:55:09.263" level="ERROR">Error in file '/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot' on line 2: Importing library 'RPA.Browser.Selenium' failed: ModuleNotFoundError: No module named 'RPA.Browser'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_debug_adapter
-  /Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src
-  /Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_ls/vendored
-  /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python38.zip
-  /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8
-  /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/lib-dynload
-  /Users/Shared/robocorp/ht/e27f321_b1f3c24_0041a488/lib/python3.8/site-packages</msg>
 </errors>
 </robot>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 21:26:26.997" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot Interactive Console" source="/Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Open Browser">
+<arg>http://www.google.com</arg>
+<arg>chrome</arg>
+<msg timestamp="20220914 21:26:28.262" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" starttime="20220914 21:26:28.262" endtime="20220914 21:26:28.262"/>
+</kw>
+<kw name="Close Browser">
+<status status="NOT RUN" starttime="20220914 21:26:28.264" endtime="20220914 21:26:28.264"/>
+</kw>
+<status status="PASS" starttime="20220914 21:26:27.028" endtime="20220914 21:39:53.658"/>
+</kw>
+<status status="PASS" starttime="20220914 21:26:27.027" endtime="20220914 21:39:53.659"/>
+</test>
+<status status="PASS" starttime="20220914 21:26:26.999" endtime="20220914 21:39:53.661"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

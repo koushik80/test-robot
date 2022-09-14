@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.1 (Python 3.8.10 on darwin)" name="Generator">
+<meta content="Robot Framework 5.0.1 (Python 3.9.13 on darwin)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -318,6 +318,9 @@ th.stats-col-graph:hover {
     top: 0;
     padding: 3px;
     cursor: default;
+}
+.element-header .label {
+    margin-right: 0.5em;
 }
 .name {
     font-weight: bold;
@@ -966,6 +969,7 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
@@ -1350,8 +1354,8 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR', 'IF', 'ELSE IF', 'ELSE'];
-    var MESSAGE_TYPE = 8;
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
+                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1372,10 +1376,10 @@ window.testdata = function () {
                 elapsed];
     }
     function createMessage(element, strings) {
-        return model.Message(LEVELS[element[2]],
-                             util.timestamp(element[1]),
-                             strings.get(element[3]),
-                             strings.get(element[4]));
+        return model.Message(LEVELS[element[1]],
+                             util.timestamp(element[0]),
+                             strings.get(element[2]),
+                             strings.get(element[3]));
     }
     function parseStatus(stats) {
         return STATUSES[stats[0]];
@@ -1386,9 +1390,12 @@ window.testdata = function () {
         };
     }
     function createBodyItem(parent, element, strings, index) {
-        if (element[0] == MESSAGE_TYPE)
+        if (element.length < 5)
             return createMessage(element, strings);
-        return createKeyword(parent, element, strings, index);
+        var messages = util.filter(parent.children(), function (child) {
+            return child.type == 'message';
+        })
+        return createKeyword(parent, element, strings, index - messages.length);
     }
     function createKeyword(parent, element, strings, index) {
         var kw = model.Keyword({
@@ -1796,31 +1803,31 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[0,0,36],[],[[4,0,0,[],[0,30,6,5],[[0,6,0,0,0,0,0,0,[0,31,3],[[0,7,0,0,0,8,0,0,[0,33,0],[[8,33,5,5]]]]],[0,9,0,0,0,0,0,0,[3,34,0],[]],[0,10,0,0,0,11,0,0,[3,35,0],[]],[0,12,0,0,0,0,0,0,[3,35,0],[]],[0,13,0,0,0,0,0,0,[3,35,0],[]],[0,14,0,0,0,0,0,0,[3,35,0],[]],[0,15,0,0,0,0,0,0,[3,35,0],[]]]]],[],[1,0,1,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,409],[],[[4,0,5,[6],[0,394,14,7],[[0,8,9,0,10,11,0,0,[0,395,12],[[395,2,12],[0,13,9,0,14,0,0,0,[1,402,1],[[403,2,15]]],[405,5,7]]],[0,16,9,0,17,0,0,0,[3,407,0],[]]]]],[],[1,0,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Taitotalo","*/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/taitotalo.robot","*taitotalo.robot","*Testaa taitotalon haku ja ilmottautuminen","*No keyword with name 'Open Available Browser' found.","*Avaa taitotalon sivu","*Open Available Browser","*<a href=\"https://www.taitotalo.fi/\">https://www.taitotalo.fi/\x3c/a>","*Hyväksy evästeet","*Hae haku lomakkeella","*Python","*Hae ensimmäistä koulutusta","*Täytä lomakkeen tiedot","*Ota kuvankaappaus","*Sulje selain","eNq1kkFPwkAQhe/8irlVD+1aIJFww6jRg0gED57IdncKm253mtmpiL/eglFD9GLE47zdfO+9yVwxE4MLUDqPkKjHiBxVRW1cu8riVl1irIQatdBOSLQnmG1lTUF5NNIyRiUYJWUqSJR8fMr2cwIUwLuA0B/Dbd0QiwurTilY8xaSh9kku2DadJ7ZHD0G19YJlLqLYsdwR7b1OCW5pjbYq13QMUwJ6r0OQddoDxhJb8HaYKFNBSc1RQFGg0HAaO/B6yin4x50iIC92dPi5n46myxudtL32tlzNGRR4YtgiI5CVLtKhrh571Zy578hrlIfmzTP8mygIht1+Li0WLSrpba6EeQfnX6z4KNG/dfePqpnDJYY7ZfPfK27+ROo1qKwf14O+vmyyMuB6Q+XZ2fDXA9HI9UdiWr2ixiMslfX/JmSjY6A2E2p3QZP2h4DF51g2nQHq1cY3wBIXz4/"]);
+window.output["strings"] = window.output["strings"].concat(["*","*GoogleSearch","*/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot","*Tests/Google/FunctionalTestSuite%20/GoogleSearch.robot","*This is sample test case","*<p>Google test\x3c/p>","*regression","eNqdjbEKgzAURfd+xcPFLW8XKxRa6FJwEDon8TYJqE/yYvHzW5w6d7vDOec+4a45vZFvu8dakiwNPaBqAxqqfcwyYzyAmrDDb8W6CbQAo1IRcqC0UH8Z7ob6CVZBClBrKWa8zlUsZdWGWVOBmiASJhgvM1s+4mmbjeTAv08cv7Pq/lZbtt3pA0/uTm4=","*Open Browser","*SeleniumLibrary","*<p>Opens a new browser instance to the optional <code>url\x3c/code>.\x3c/p>","*<a href=\"http://www.google.com\">http://www.google.com\x3c/a>, chrome","*Opening browser 'chrome' to base url '<a href=\"http://www.google.com\">http://www.google.com\x3c/a>'.","*Capture Page Screenshot","*<p>Takes a screenshot of the current page and embeds it into a log file.\x3c/p>","*Cannot capture screenshot because no browser is open.","*Close Browser","*<p>Closes the current browser.\x3c/p>"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:00","fail":1,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:00","fail":1,"id":"s1","label":"Taitotalo","name":"Taitotalo","pass":0,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:00","fail":1,"label":"All Tests","pass":0,"skip":0}],[{"elapsed":"00:00:00","fail":1,"label":"regression","pass":0,"skip":0}],[{"elapsed":"00:00:00","fail":1,"id":"s1","label":"GoogleSearch","name":"GoogleSearch","pass":0,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [[8,29,4,16]];
+window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1663178109234;
+window.output["baseMillis"] = 1663183419425;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 41;
+window.output["generated"] = 415;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
 </script>
 <script type="text/javascript">
-window.settings = {"defaultLevel":"INFO","minLevel":"FAIL","reportURL":"report.html","rpa":false,"splitLogBase":"log","title":""};
+window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":"report.html","rpa":false,"splitLogBase":"log","title":""};
 </script>
 <title></title>
 </head>
@@ -2120,7 +2127,7 @@ function addExecutionLog(main) {
     <div class="element-header closed" onclick="toggleKeyword('${id}')">
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label keyword ${status.toLowerCase()}">${type}</span>
+        <span class="label ${status.toLowerCase()}">${type}</span>
         <span>{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
         <span class="arg">{{html arguments}}</span>
@@ -2128,7 +2135,7 @@ function addExecutionLog(main) {
       <div class="element-header-right" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this keyword" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
       </div>
       <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>
