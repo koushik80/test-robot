@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1 (Python 3.8.10 on darwin)" generated="20220914 21:26:26.997" rpa="false" schemaversion="2">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20220914 22:56:42.517" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Interactive Console" source="/Users/koushikdey/.vscode/extensions/robocorp.robotframework-lsp-1.1.3/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
-<test id="s1-t1" name="Default Task/Test">
+<test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
 <kw name="Open Browser">
 <arg>http://www.google.com</arg>
 <arg>chrome</arg>
-<msg timestamp="20220914 21:26:28.262" level="FAIL">No keyword with name 'Open Browser' found.</msg>
-<status status="FAIL" starttime="20220914 21:26:28.262" endtime="20220914 21:26:28.262"/>
+<msg timestamp="20220914 22:56:43.682" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" starttime="20220914 22:56:43.682" endtime="20220914 22:56:43.682"/>
 </kw>
 <kw name="Close Browser">
-<status status="NOT RUN" starttime="20220914 21:26:28.264" endtime="20220914 21:26:28.264"/>
+<status status="NOT RUN" starttime="20220914 22:56:43.684" endtime="20220914 22:56:43.684"/>
 </kw>
-<status status="PASS" starttime="20220914 21:26:27.028" endtime="20220914 21:39:53.658"/>
+<status status="PASS" starttime="20220914 22:56:42.561" endtime="20220914 22:56:47.377"/>
 </kw>
-<status status="PASS" starttime="20220914 21:26:27.027" endtime="20220914 21:39:53.659"/>
+<status status="PASS" starttime="20220914 22:56:42.560" endtime="20220914 22:56:47.378"/>
 </test>
-<status status="PASS" starttime="20220914 21:26:26.999" endtime="20220914 21:39:53.661"/>
+<status status="PASS" starttime="20220914 22:56:42.518" endtime="20220914 22:56:47.379"/>
 </suite>
 <statistics>
 <total>

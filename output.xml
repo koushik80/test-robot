@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20220914 22:23:39.422" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20220914 22:56:26.941" rpa="false" schemaversion="3">
 <suite id="s1" name="GoogleSearch" source="/Users/koushikdey/Desktop/Taitotalo Python/lectures/test-robot/Tests/Google/FunctionalTestSuite /GoogleSearch.robot">
 <test id="s1-t1" name="This is sample test case" line="8">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>http://www.google.com</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220914 22:23:39.820" level="INFO">Opening browser 'chrome' to base url 'http://www.google.com'.</msg>
+<msg timestamp="20220914 22:56:27.337" level="INFO">Opening browser 'chrome' to base url 'http://www.google.com'.</msg>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20220914 22:23:39.828" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" starttime="20220914 22:23:39.827" endtime="20220914 22:23:39.828"/>
+<msg timestamp="20220914 22:56:27.344" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" starttime="20220914 22:56:27.342" endtime="20220914 22:56:27.344"/>
 </kw>
-<msg timestamp="20220914 22:23:39.830" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+<msg timestamp="20220914 22:56:27.345" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
 </msg>
-<status status="FAIL" starttime="20220914 22:23:39.820" endtime="20220914 22:23:39.832"/>
+<status status="FAIL" starttime="20220914 22:56:27.336" endtime="20220914 22:56:27.347"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" starttime="20220914 22:23:39.832" endtime="20220914 22:23:39.832"/>
+<status status="NOT RUN" starttime="20220914 22:56:27.348" endtime="20220914 22:56:27.348"/>
 </kw>
 <doc>Google test</doc>
 <tag>regression</tag>
-<status status="FAIL" starttime="20220914 22:23:39.819" endtime="20220914 22:23:39.833">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
+<status status="FAIL" starttime="20220914 22:56:27.335" endtime="20220914 22:56:27.349">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://sites.google.com/a/chromium.org/chromedriver/home
 </status>
 </test>
-<status status="FAIL" starttime="20220914 22:23:39.425" endtime="20220914 22:23:39.834"/>
+<status status="FAIL" starttime="20220914 22:56:26.942" endtime="20220914 22:56:27.350"/>
 </suite>
 <statistics>
 <total>
